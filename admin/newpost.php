@@ -23,7 +23,7 @@ if(!empty($_POST['submitted'])) {
 
     if(count($errors) === 0) {
         // insertion en BDD si aucune error
-        $sql = "INSERT INTO articles (title,content,auteur,created_at,modified_at,statu) VALUES (:title,:content,:auteur,:statu,NOW())";
+        $sql = "INSERT INTO articles(title,content,auteur,created_at,modified_at,statu)VALUES (:title,:content,:auteur,NOW(),NOW(),:statu)";
         $query = $pdo->prepare($sql);
         // ATTENTION INJECTION SQL
         $query->bindValue(':title',$title, PDO::PARAM_STR);
@@ -32,7 +32,7 @@ if(!empty($_POST['submitted'])) {
         $query->bindValue(':statu',$statu, PDO::PARAM_STR);
         $query->execute();
         $last_id = $pdo->lastInsertId();
-        header('Location: index.php?id=' . $last_id);
+        // header('Location: index.php?id=' . $last_id);
 //        $success = true;
     }
 }?>
