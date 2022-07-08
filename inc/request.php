@@ -21,3 +21,16 @@ function getAllArticles($limit = 10,$order = 'DESC')
     $articles = $query->fetchAll();
     return $articles;
 }
+
+function publishedArticles() {
+    global $pdo;
+    $sql = "SELECT * FROM articles WHERE statu = 'publish' ORDER BY created_at LIMIT 10";
+$query = $pdo->prepare($sql);
+$query->execute();
+$articles = $query->fetchall();
+return $articles;
+}
+
+function getComments(){
+    
+}

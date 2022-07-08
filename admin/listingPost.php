@@ -31,7 +31,15 @@ include('inc/header-back.php');?>
 
 
         <a href="editPost.php?id=<?php echo $article['id']; ?>">Modifier</a>
-        <a href="deletePost.php?id=<?php echo $article['id']; ?>">Delete</a>
+
+        <a href="deletePost.php?id=<?php echo $article['id']; ?>">Supprimer</a>
+
+
+        <?php if ($article['statu'] == 'publish') { ?>
+        <a href="depublierPost.php?id=<?php echo $article['id']; ?>">Dépublier</a><?php } ?>
+
+        <?php if ($article['statu'] !== 'publish') { ?>
+        <a href="publishedPost.php?id=<?php echo $article['id']; ?>">Publier</a><?php } ?>
     </li>
     <?php } ?>
 </ul>

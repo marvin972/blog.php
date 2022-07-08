@@ -42,3 +42,6 @@ function cleanXss($key)
 {
     return trim(strip_tags($_POST[$key]));
 }
+function getError($errors,$key){
+    return (!empty($errors[$key])) ? $errors[$key] : '';
+}
