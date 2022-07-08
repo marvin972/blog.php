@@ -26,5 +26,7 @@ input, select {
     width: 100%;
     padding: 1rem;
 }
+
+
 textarea {width: 100%;resize: none;}
 .error {color:red;}

@@ -8,6 +8,22 @@ function debug($tableau)
     echo '</pre>';
 }
 
+function getValue($key,$data = null){
+    if(!empty($_POST[$key])) {
+        return $_POST[$key];
+    } else {
+        if(!empty($data)) {
+            return $data;
+        }
+    }
+    return '';
+}
+
+function dateSite($data,$format = 'd/m/Y à H:i')
+{
+    return date($format,strtotime($data));
+}
+
 function validText($er, $data, $key, $min, $max)
 {
     if(!empty($data)) {

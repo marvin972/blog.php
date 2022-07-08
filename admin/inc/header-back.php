@@ -14,6 +14,7 @@
             <li><a href="../index.php">Front</a></li>
             <li><a href="index.php">Dashboard</a></li>
             <li><a href="newpost.php">Ajouter</a></li>
+            <li><a href="listingPost.php">Liste Articles</a></li>
         </ul>
     </nav>
 </header>
