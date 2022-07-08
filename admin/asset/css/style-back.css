@@ -13,11 +13,16 @@ body {
 header, footer {
     background-color: #cac3c3;
 }
+
+
+.wrap {
+    max-width: 1000px; width: 100%; margin: 0 auto;
+}
 .wrap2 {
     max-width: 500px; width: 100%; margin: 0 auto;
 }
 label {display: block;}
-input {
+input, select {
     width: 100%;
     padding: 1rem;
 }

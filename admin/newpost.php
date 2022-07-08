@@ -4,9 +4,6 @@ require('../inc/fonction.php');
 require('../inc/pdo.php');
 
 
-include('inc/header-back.php');?>
-
-<?php
 $success = false;
 $errors = array();
 if(!empty($_POST['submitted'])) {
@@ -31,13 +28,13 @@ if(!empty($_POST['submitted'])) {
         $query->bindValue(':auteur',$auteur, PDO::PARAM_STR);
         $query->bindValue(':statu',$statu, PDO::PARAM_STR);
         $query->execute();
-        $last_id = $pdo->lastInsertId();
-        // header('Location: index.php?id=' . $last_id);
-//        $success = true;
+        header('Location: index.php?id=');
+       $success = true;
     }
-}?>
+}
 
-
+include('inc/header-back.php');?>
+<h1>Ajouter un article</h1>
 <form action="" method="post" novalidate class="wrap2">
         <label for="title">Titre</label>
         <input type="text" name="title" id="title" value="<?php if(!empty($_POST['title'])) { echo $_POST['title']; } ?>">
@@ -51,9 +48,28 @@ if(!empty($_POST['submitted'])) {
         <input type="text" name="auteur" id="auteur" value="<?php if(!empty($_POST['auteur'])) { echo $_POST['auteur']; } ?>">
         <span class="error"><?php if(!empty($errors['auteur'])) { echo $errors['auteur']; } ?></span>
 
-        <label for="statu">Status</label>
-        <input type="text" name="statu" id="statu" value="<?php if(!empty($_POST['statu'])) { echo $_POST['statu']; } ?>">
+        <?php
+        $statu = array(
+            'draft' => 'brouillon',
+            'publish' => 'Publié'
+        );
+
+        ?>
+        <select name="statu">
+            <option value="">---------------------</option>
+            <?php foreach ($statu as $key => $value) {
+                $selected = '';
+                if(!empty($_POST['statu'])) {
+                    if($_POST['statu'] == $key) {
+                        $selected = ' selected="selected"';
+                    }
+                }
+                ?>
+                <option value="<?php echo $key; ?>"<?php echo $selected; ?>><?php echo $value; ?></option>
+            <?php } ?>
+        </select>
         <span class="error"><?php if(!empty($errors['statu'])) { echo $errors['statu']; } ?></span>
+
 
         <input type="submit" name="submitted" value="Ajouter articles">
     </form>
