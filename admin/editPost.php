@@ -36,11 +36,11 @@ if(!empty($_POST['submitted'])) {
         $query->bindValue(':title',$title,PDO::PARAM_STR);
         $query->bindValue(':auteur',$auteur,PDO::PARAM_STR);
         $query->bindValue(':content',$content,PDO::PARAM_STR);
-        $query->bindValue(':status',$statu,PDO::PARAM_STR);
+        $query->bindValue(':statu',$statu,PDO::PARAM_STR);
         $query->bindValue(':id',$id,PDO::PARAM_INT);
         $query->execute();
-        // header('Location: listingpost.php');
-//        $success = true;
+        header('Location: listingPost.php');
+       $success = true;
 
     }
 }

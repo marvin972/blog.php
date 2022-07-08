@@ -27,7 +27,7 @@ if(!empty($_POST['submitted'])) {
         $query->bindValue(':auteur',$auteur, PDO::PARAM_STR);
         $query->bindValue(':statu',$statu, PDO::PARAM_STR);
         $query->execute();
-        header('Location: index.php?id=');
+        header('Location: listingPost.php?id=');
        $success = true;
     }
 }
